@@ -1,0 +1,21 @@
+<%= form_with model: @product do |form|%>
+<%#= form_with model: [ @product, product_image ] do |form| %>
+ 
+   
+
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <%# <div> %>
+    <%# <%= form.label :Product_id, style: "display: block" %> 
+    <%#= form.collection_select :Product_id, Product.all, :id, :name %>
+  <%# </div> %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+
+<% end %>

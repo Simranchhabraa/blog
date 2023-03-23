@@ -1,0 +1,16 @@
+<h1> Welcome to the first page </h1>
+</br>
+
+<h2><%#= link_to "Product Images", new_product_image_path %></h2> </tr>
+<h2><%= link_to "Idproof", new_idproof_path %></h2> </tr>
+<h2><%= link_to "Category", new_category_path %></h2> </tr>
+<h2>Products</h2>
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= link_to product.name, product %>
+    </li>
+</ul>
+<% end %>
+<%= link_to "New Product", new_product_path %>
