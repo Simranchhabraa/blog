@@ -7,8 +7,8 @@
 <%# <p><strong>Image: </strong><%= @product.product_image.image %>
 
 
-<%= render 'product_images/form' %>
-<%= render @product.product_image %>
+<%#= render 'product_images/form' %>
+<%#= render @product.product_image %>
 <ul>
   <li><%= link_to "Edit", edit_product_path(@product) %></li>
   <li><%= link_to "Destroy", product_path(@product), data: {
