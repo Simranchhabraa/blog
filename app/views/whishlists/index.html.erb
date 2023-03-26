@@ -1,0 +1,62 @@
+
+<h1>Whishlists</h1>
+<link
+  href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+​
+<div class="container wrapper">
+  <div class="row cart-body">
+    <form class="form-horizontal" method="post" action="">
+      <div
+        class=""
+      >
+        <!--REVIEW ORDER-->
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            Review Order
+          </div>
+          <div class="panel-body">
+          <% @whishlists.each do |w|%>
+            <div class="form-group">
+              <div class="col-sm-3 col-xs-3">
+                <img
+                  class="img-responsive"
+                  src="https://c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"
+                />
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <div class="col-xs-12">Product name</div>
+                <div class="col-xs-12">
+                  <%# <small>Quantity:<span>1</span></small> %>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-right">
+                <h6><span>$</span><%= w&.product&.price%></h6>
+                <P><%= link_to "Remove",(w)%></P>
+                <p><%= link_to "order",(w)%></p>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<p style="color: green"><%= notice %></p>
+
+<div id="whishlists">
+  <% @whishlists.each do |whishlist| %>
+    <%= render whishlist %>
+    <p>
+      <%= link_to "Show this whishlist", whishlist %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New whishlist", new_whishlist_path %>

@@ -1,0 +1,11 @@
+
+
+
+<strong> quantity </strong>
+<%= @cart.quantity  %>
+<strong> product_id </strong>
+<%= @cart.product_id  %>
+<strong> merchant_id </strong>
+<%= @cart.merchant_id %>
+
+<%= button_to "Destroy this product", @cart, method: :delete %>

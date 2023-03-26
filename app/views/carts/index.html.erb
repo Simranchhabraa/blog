@@ -1,0 +1,78 @@
+<h1>Cart items</h1>
+  <%#= link_to "Add to Cart", line_items_path(:product_id => product), :method => :post %>
+
+  <link
+  href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+​
+<div class="container wrapper">
+  <div class="row cart-body">
+    <form class="form-horizontal" method="post" action="">
+      <div
+        class=""
+      >
+        <!--REVIEW ORDER-->
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            Review Order
+          </div>
+
+          <div class="panel-body">
+            <% @carts.each do |c|%>
+            <div class="form-group">
+              <div class="col-sm-3 col-xs-3">
+                <img
+                  class="img-responsive"
+                  src="https://c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"
+                />
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <div class="col-xs-12"><%= c.product.name %></div>
+                <div class="col-xs-12">
+                  <small>Quantity:<span><%= c.quantity %></span></small>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-right">
+                <h6><%=c.product.price%></h6>
+                <%= link_to "destroy this cart", "/carts/#{c.id}/remove_from_cart" %><br>
+                <%= link_to "place your order", "/carts/#{c.id}/add_order" %><br>
+                <a href ="/products/<%= c.product.id%>/whishlists">Wishlist</a>
+
+              </div>
+            </div>
+              <%end%>
+            
+            <div class="form-group"><hr /></div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <strong>Subtotal</strong>
+                <div class="pull-right"><span>$</span><span>200.00</span></div>
+              </div>
+              <div class="col-xs-12">
+                <small>Shipping</small>
+                <div class="pull-right"><span>-</span></div>
+              </div>
+            </div>
+            <div class="form-group"><hr /></div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <strong>Order Total</strong>
+                <div class="pull-right"><span>$</span><span>150.00</span></div>
+              </div>
+            </div>
+​
+            <div class="form-group">
+                <div class="col-xs-12">
+                  <div class="pull-right"><span></span><span><a class="btn-primary btn" href="">Checkout</a></span></div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
