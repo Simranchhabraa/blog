@@ -17,6 +17,11 @@ class WhishlistsController < ApplicationController
       redirect_to whishlists_path, notice: "Product added to whishlist"
     end
   end
+  def destroy
+    @whishlist = Whishlist.find(params[:id])
+    @whishlist.destroy
+    redirect_to @whishlist, notice: "Removed Successfully from Whishlist"
+  end
 
   private
 

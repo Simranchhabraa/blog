@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get :add_order, to: 'orders#create'
       get :remove_from_cart, to: 'carts#destroy'
+      
     end
   end
   #get 'products/index'
@@ -19,8 +20,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "products#index"
   # root to: "products#index"
+
+  resources :whishlists do
+    member do
+      get :remove_from_whishlist, to: 'whishlists#destroy'
+      get :add_order, to: 'orders#create'
+
+    end
+  end
   resources :products do
     member do
+    
       get :whishlist, to: 'whishlists#create'
       get :cart, to: 'carts#cart'
 

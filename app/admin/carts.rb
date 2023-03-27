@@ -1,4 +1,4 @@
-ActiveAdmin.register ProductImage do
+ActiveAdmin.register Cart do
     permit_params :quantity, :product_id, :merchant_id
   
     index do
